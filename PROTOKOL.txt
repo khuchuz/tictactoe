@@ -1,0 +1,61 @@
+FILE SERVER
+TUJUAN: melayani client dalam request pada server
+
+ATURAN PROTOKOL:
+- client harus mengirimkan request dalam bentuk string
+- string harus dalam format
+  REQUEST spasi PARAMETER
+- PARAMETER dapat berkembang menjadi PARAMETER1 spasi PARAMETER2 dan seterusnya
+
+REQUEST YANG DILAYANI:
+- informasi umum:
+  * Jika request tidak dikenali akan menghasilkan pesan
+    - status: ERROR
+    - data: request tidak dikenali
+  * Semua result akan diberikan dalam bentuk JSON dan diakhiri
+    dengan character ascii code #13#10#13#10 atau "\r\n\r\n"
+
+get_last_turn
+* TUJUAN: untuk mendapatkan atau mengetahui giliran terakhir
+* PARAMETER: tidak ada
+* RESULT:
+- BERHASIL:
+  - status: OK
+  - last_turn: X atau O
+- GAGAL:
+  - status: ERROR
+  - data: pesan kesalahan
+
+set_location
+* TUJUAN: untuk menyimpan petak mana saja yang sudah di pilih
+* PARAMETER:
+  - PARAMETER1 : list lokasi
+* RESULT:
+- BERHASIL:
+  - status: OK
+- GAGAL:
+  - status: ERROR
+  - data: pesan kesalahan
+
+get_location
+* TUJUAN: untuk mendapatkan lokasi yang tersimpan pada server
+* PARAMETER:
+  - PARAMETER1 : tidak ada
+* RESULT:
+- BERHASIL:
+  - status: OK
+  - location: [list petak player X, list petak player O
+- GAGAL:
+  - status: ERROR
+  - data: pesan kesalahan
+
+reset
+* TUJUAN: untuk mereset game
+* PARAMETER:
+  - PARAMETER1 : tidak ada
+* RESULT:
+- BERHASIL:
+  - status: OK
+- GAGAL:
+  - status: ERROR
+  - data: pesan kesalahan
