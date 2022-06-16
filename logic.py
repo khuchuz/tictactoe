@@ -1,14 +1,8 @@
-import os
-import json
-import base64
-from glob import glob
-import shelve
-
 #asumsi, hanya ada player X dan O
 class PlayerServerInterface:
     def __init__(self):
-        self.playersX = [0,1]
-        self.playersO = [3,4]
+        self.playersX = []
+        self.playersO = []
         self.last_turn = 'X'
 
     def get_last_turn(self,params=[]):

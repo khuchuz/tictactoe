@@ -4,18 +4,19 @@ from kivy.uix.widget import Widget
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.gridlayout import GridLayout
 from kivymd.app import MDApp
-from kivy.graphics import Color, Rectangle, Line
+from kivy.graphics import Color
 from functools import partial
 from kivy.clock import  Clock
 
 import socket
 import logging
 import json
-import keyboard
+
 class ClientInterface:
     def __init__(self,idplayer='X'):
         self.idplayer=idplayer
-        self.server_address=('127.0.0.1',6666)
+        #self.server_address=('192.168.63.182',6666)
+        self.server_address=('192.168.194.234',6666)
 
     def send_command(self,command_str=""):
         global server_address
